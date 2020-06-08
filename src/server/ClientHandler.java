@@ -28,7 +28,7 @@ public class ClientHandler {
                         String str = in.readUTF();
 
                         if (str.startsWith("/auth ")) {
-                            String[] token = str.split(" ");
+                            String[] token = str.split(" ", 3);
 
                             System.out.println(str);
                             if (token.length < 2) {
@@ -59,8 +59,17 @@ public class ClientHandler {
                             sendMsg("/end");
                             break;
                         }
+                        // Реализация ЛС
+                        if(str.startsWith("/w"))
+                        {
+                            String to = str.split(" ", 3 )[1];
+                            String msg = str.split(" ", 3)[2];
+                            server.wisperMsg(this, to, msg);
 
-                        server.broadcastMsg(nick + ": " + str);
+                        } else {
+
+                            server.broadcastMsg(nick + ": " + str);
+                        }
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -87,5 +96,8 @@ public class ClientHandler {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public String getClientName() {
+        return this.nick;
     }
 }
