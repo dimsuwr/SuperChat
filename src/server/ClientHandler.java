@@ -62,8 +62,8 @@ public class ClientHandler {
                         // Реализация ЛС
                         if(str.startsWith("/w"))
                         {
-                            String to = str.split(" " )[1];
-                            String msg = str.split(" ")[2];
+                            String to = str.split(" ", 3 )[1];
+                            String msg = str.split(" ", 3)[2];
                             server.wisperMsg(this, to, msg);
 
                         } else {
