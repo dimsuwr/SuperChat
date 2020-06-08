@@ -64,7 +64,7 @@ public class ClientHandler {
                         {
                             String to = str.split(" ")[1];
                             String msg = str.split(" ")[2];
-                            server.wisperMsg(this, to, msg); // сообщение участниками диалога
+                            server.wisperMsg(this, to, msg);
 
                         } else {
 
