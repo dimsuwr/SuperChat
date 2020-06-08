@@ -58,4 +58,16 @@ public class Server {
     public AuthService getAuthService() {
         return authService;
     }
+
+    public void wisperMsg(ClientHandler from, String to, String msg)
+    {
+
+        for (ClientHandler client: clients) {
+            if(client.getClientName().equals(to)) {
+                client.sendMsg("[W from: " + from.getClientName() + "] " + msg);
+                break;
+            }
+        }
+        from.sendMsg("[W to: " + to + "] " + msg);
+    }
 }

@@ -60,7 +60,16 @@ public class ClientHandler {
                             break;
                         }
 
-                        server.broadcastMsg(nick + ": " + str);
+                        if(str.startsWith("/w"))
+                        {
+                            String to = str.split(" ")[1];
+                            String msg = str.split(" ")[2];
+                            server.wisperMsg(this, to, msg); // сообщение участниками диалога
+
+                        } else {
+
+                            server.broadcastMsg(nick + ": " + str);
+                        }
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -87,5 +96,8 @@ public class ClientHandler {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public String getClientName() {
+        return this.nick;
     }
 }
