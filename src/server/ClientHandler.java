@@ -59,7 +59,7 @@ public class ClientHandler {
                             sendMsg("/end");
                             break;
                         }
-
+                        // Реализация ЛС
                         if(str.startsWith("/w"))
                         {
                             String to = str.split(" ")[1];

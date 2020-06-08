@@ -59,6 +59,7 @@ public class Server {
         return authService;
     }
 
+    //Метод для реализации ЛС
     public void wisperMsg(ClientHandler from, String to, String msg)
     {
 
